@@ -75,6 +75,7 @@ export default function LoginPage() {
       });
       Cookies.set("access", data.access, { sameSite: "lax", path: "/" });
       Cookies.set("refresh", data.refresh, { sameSite: "lax", path: "/", expires: 7 });
+      console.log("data", data); 
       router.push("/");
       router.refresh();
     } catch (err) {
