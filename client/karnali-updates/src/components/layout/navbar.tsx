@@ -14,7 +14,7 @@ export default function KarnaliUpdatesNavbar() {
     ];
   
     return (
-      <header className="w-full border-b border-zinc-800 bg-black text-white sticky top-0 z-50 backdrop-blur-xl">
+      <header className="w-full shrink-0 border-b border-zinc-800 bg-black text-white relative z-10">
         {/* Top Breaking News Bar */}
         <div className="bg-red-600 text-white text-sm overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 py-2 flex items-center gap-3 whitespace-nowrap">
