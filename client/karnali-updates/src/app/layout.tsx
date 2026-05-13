@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import KarnaliUpdatesNavbar from "@/components/layout/navbar";
+import KarnaliUpdatesFooter from "@/components/layout/footer";
+import { Providers } from "@/components/layout/theme";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -29,11 +31,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", geist.variable)}
     >
-      <body className="min-h-full flex flex-col">
-        <KarnaliUpdatesNavbar />
-        <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+      <body className="flex min-h-full flex-col">
+        <Providers>
+          <KarnaliUpdatesNavbar />
+          <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+          <KarnaliUpdatesFooter />
+        </Providers>
       </body>
     </html>
   );

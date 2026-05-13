@@ -1,5 +1,7 @@
-'use client'
+"use client";
 
+import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { LiveUpdatesTicker } from "../home/live-updates-ticker";
 
 export default function KarnaliUpdatesNavbar() {
     const categories = [
@@ -14,9 +16,9 @@ export default function KarnaliUpdatesNavbar() {
     ];
   
     return (
-      <header className="w-full shrink-0 border-b border-zinc-800 bg-black text-white relative z-10">
+      <header className="relative z-10 w-full shrink-0 border-b border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-black dark:text-white">
         {/* Top Breaking News Bar */}
-        <div className="bg-red-600 text-white text-sm overflow-hidden">
+        {/* <div className="bg-red-600 text-white text-sm overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 py-2 flex items-center gap-3 whitespace-nowrap">
             <span className="font-bold uppercase tracking-wide">
               Breaking
@@ -28,8 +30,10 @@ export default function KarnaliUpdatesNavbar() {
               Worldwide
             </div>
           </div>
+        </div> */}
+        <div className="p-4" >
+          <LiveUpdatesTicker/>
         </div>
-  
         {/* Main Navbar */}
         <nav className="max-w-7xl mx-auto px-4 lg:px-6">
           <div className="flex items-center justify-between h-20">
@@ -43,7 +47,7 @@ export default function KarnaliUpdatesNavbar() {
                 <h1 className="text-2xl font-black tracking-tight">
                   Karnali Updates
                 </h1>
-                <p className="text-xs text-zinc-400 tracking-wider uppercase">
+                <p className="text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
                   Truth • Fast • Reliable
                 </p>
               </div>
@@ -71,8 +75,10 @@ export default function KarnaliUpdatesNavbar() {
   
             {/* Right Actions */}
             <div className="flex items-center gap-3">
+              <ThemeToggle />
+
               {/* Search */}
-              <button className="hidden md:flex items-center gap-2 bg-zinc-900 hover:bg-zinc-800 px-4 py-2 rounded-xl transition-all duration-300 border border-zinc-800">
+              <button className="hidden items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-4 py-2 transition-all duration-300 hover:bg-zinc-200 md:flex dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -88,7 +94,9 @@ export default function KarnaliUpdatesNavbar() {
                   />
                 </svg>
   
-                <span className="text-sm text-zinc-300">Search</span>
+                <span className="text-sm text-zinc-600 dark:text-zinc-300">
+                  Search
+                </span>
               </button>
   
               {/* Live News */}
@@ -97,7 +105,7 @@ export default function KarnaliUpdatesNavbar() {
               </button>
   
               {/* Mobile Menu */}
-              <button className="lg:hidden p-2 rounded-lg border border-zinc-800 hover:bg-zinc-900">
+              <button className="rounded-lg border border-zinc-200 p-2 hover:bg-zinc-100 lg:hidden dark:border-zinc-800 dark:hover:bg-zinc-900">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -118,7 +126,7 @@ export default function KarnaliUpdatesNavbar() {
         </nav>
   
         {/* Bottom Category Scroll */}
-        <div className="border-t border-zinc-900 bg-zinc-950">
+        <div className="border-t border-zinc-200 bg-zinc-100 dark:border-zinc-900 dark:bg-zinc-950">
           <div className="max-w-7xl mx-auto px-4 py-3 overflow-x-auto scrollbar-hide">
             <div className="flex items-center gap-3 min-w-max">
               {[
@@ -135,7 +143,7 @@ export default function KarnaliUpdatesNavbar() {
               ].map((tag) => (
                 <button
                   key={tag}
-                  className="px-4 py-2 rounded-full bg-zinc-900 hover:bg-red-600 transition-all duration-300 text-sm border border-zinc-800"
+                  className="rounded-full border border-zinc-300 bg-zinc-200 px-4 py-2 text-sm transition-all duration-300 hover:border-red-600 hover:bg-red-600 hover:text-white dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-red-600"
                 >
                   #{tag}
                 </button>
