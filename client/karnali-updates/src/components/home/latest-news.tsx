@@ -4,7 +4,7 @@ import type { HomeArticle } from "./data";
 import { SectionHeader } from "./section-header";
 
 type LatestNewsProps = {
-  items: HomeArticle[];
+  items: HomeArticle[]; 
 };
 
 export function LatestNews({ items }: LatestNewsProps) {

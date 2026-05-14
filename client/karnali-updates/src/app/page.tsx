@@ -115,7 +115,8 @@ export default function Home() {
 
             <ShortNewsStrip items={SHORT_NEWS} />
 
-            <CategoryRail
+            <div>
+              {/* <CategoryRail
               title="Entertainment"
               eyebrow="Culture & screens"
               href="/entertainment"
@@ -134,9 +135,10 @@ export default function Home() {
               eyebrow="World desk"
               href="/world"
               items={INTERNATIONAL}
-            />
+            /> */}
+            </div>
 
-            <OpinionSection items={OPINION} />
+            {/* <OpinionSection items={OPINION} /> */}
           </div>
 
           <aside className="space-y-10 lg:col-span-4 lg:space-y-12">
