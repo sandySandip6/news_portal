@@ -1,10 +1,9 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import Cookies from "js-cookie";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import * as z from "zod";
@@ -12,6 +11,7 @@ import { Newspaper } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { setAuthSession } from "@/lib/auth-cookies";
 import { loginUser } from "@/services/auth";
 
 const loginSchema = z.object({
@@ -51,6 +51,19 @@ function getLoginErrorMessage(err: unknown): string {
   return "Something went wrong. Please try again.";
 }
 
+function RegisteredNotice() {
+  const searchParams = useSearchParams();
+  if (searchParams.get("registered") !== "1") return null;
+  return (
+    <div
+      role="status"
+      className="rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-3 py-2 text-sm text-emerald-800 dark:text-emerald-200"
+    >
+      Account created. Sign in with your username and password.
+    </div>
+  );
+}
+
 export default function LoginPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -73,9 +86,11 @@ export default function LoginPage() {
         username: values.username,
         password: values.password,
       });
-      Cookies.set("access", data.access, { sameSite: "lax", path: "/" });
-      Cookies.set("refresh", data.refresh, { sameSite: "lax", path: "/", expires: 7 });
-      console.log("data", data); 
+      setAuthSession({
+        access: data.access,
+        refresh: data.refresh,
+        username: values.username.trim(),
+      });
       router.push("/");
       router.refresh();
     } catch (err) {
@@ -108,6 +123,9 @@ export default function LoginPage() {
             </div>
 
             <form className="space-y-5" onSubmit={handleSubmit(onSubmit)} noValidate>
+              <Suspense fallback={null}>
+                <RegisteredNotice />
+              </Suspense>
               {error ? (
                 <div
                   role="alert"
@@ -156,7 +174,12 @@ export default function LoginPage() {
             </form>
           </div>
 
-          <p className="mt-6 text-center text-xs text-muted-foreground">
+          <p className="mt-6 text-center text-sm text-muted-foreground">
+            Need an account?{" "}
+            <Link href="/signup" className="font-medium text-foreground underline-offset-4 hover:underline">
+              Sign up
+            </Link>
+            {" · "}
             <Link href="/" className="underline-offset-4 hover:underline">
               Back to home
             </Link>

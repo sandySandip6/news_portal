@@ -1,9 +1,24 @@
 "use client";
 
+import dynamic from "next/dynamic";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { LiveUpdatesTicker } from "../home/live-updates-ticker";
+
+const NavbarAuth = dynamic(
+  () => import("./navbar-auth").then((m) => m.NavbarAuth),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="flex h-10 shrink-0 items-center gap-2">
+        <div className="h-10 w-16 animate-pulse rounded-xl bg-zinc-200 dark:bg-zinc-800" />
+        <div className="h-10 w-20 animate-pulse rounded-xl bg-zinc-200 dark:bg-zinc-800" />
+      </div>
+    ),
+  }
+);
 
 const mainNavLinks = [
   { label: "Home", href: "#" },
@@ -23,6 +38,7 @@ const moreCategories = [
 ];
 
 export default function KarnaliUpdatesNavbar() {
+  const pathname = usePathname();
   const [moreOpen, setMoreOpen] = useState(false);
   const moreWrapRef = useRef<HTMLDivElement>(null);
 
@@ -142,6 +158,13 @@ export default function KarnaliUpdatesNavbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-3">
+
+            {/* Live News */}
+            <button className="bg-red-600 text-white hover:bg-red-700 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-red-600/30">
+              Live News
+            </button>
+
+            {/* Theme Toggle */}
             <ThemeToggle />
 
             {/* Search */}
@@ -166,14 +189,7 @@ export default function KarnaliUpdatesNavbar() {
               </span>
             </button>
 
-            {/* Live News */} 
-            <button className="bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-red-600/30">
-              Live News
-            </button>
-            {/* Live News */}
-            <button className="bg-red-600 hover:bg-red-700 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-red-600/30">
-              Login 
-            </button>
+            <NavbarAuth key={pathname} />
 
             {/* Mobile Menu */}
             <button className="rounded-lg border border-zinc-200 p-2 hover:bg-zinc-100 lg:hidden dark:border-zinc-800 dark:hover:bg-zinc-900">
