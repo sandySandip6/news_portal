@@ -16,6 +16,6 @@ export const signupUser = async (data: SignupData): Promise<SignupResponse> => {
     password2,
   };
   if (email) body.email = email;
-  const response = await axios.post<SignupResponse>(`${API_URL}/accounts/signup/`, body);
+  const response = await axios.post<SignupResponse>(`${API_URL}/accounts/register/`, body);
   return response.data;
 };
