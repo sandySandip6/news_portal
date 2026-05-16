@@ -1,16 +1,6 @@
 import type { ReactNode } from "react";
-import { ThemeProvider } from "next-themes";
+import { ThemeProvider } from "@/components/layout/theme-provider";
 
 export function Providers({ children }: { children: ReactNode }) {
-  return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-      storageKey="karnali-updates-theme"
-    >
-      {children}
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

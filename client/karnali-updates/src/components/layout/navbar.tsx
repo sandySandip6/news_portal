@@ -13,8 +13,8 @@ const NavbarAuth = dynamic(
     ssr: false,
     loading: () => (
       <div className="flex h-10 shrink-0 items-center gap-2">
-        <div className="h-10 w-16 animate-pulse rounded-xl bg-zinc-200 dark:bg-zinc-800" />
-        <div className="h-10 w-20 animate-pulse rounded-xl bg-zinc-200 dark:bg-zinc-800" />
+        <div className="h-10 w-16 animate-pulse rounded-xl bg-muted" />
+        <div className="h-10 w-20 animate-pulse rounded-xl bg-muted" />
       </div>
     ),
   }
@@ -67,30 +67,14 @@ export default function KarnaliUpdatesNavbar() {
   }, [moreOpen]);
 
   return (
-    <header className="relative z-10 w-full shrink-0 border-b border-zinc-200 bg-white text-zinc-900 dark:border-zinc-800 dark:bg-black dark:text-white">
-      {/* Top Breaking News Bar */}
-      {/* <div className="bg-red-600 text-white text-sm overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 py-2 flex items-center gap-3 whitespace-nowrap">
-            <span className="font-bold uppercase tracking-wide">
-              Breaking
-            </span>
-  
-            <div className="animate-marquee inline-block">
-              Nepal Government Announces New Digital Media Policy • Karnali
-              Province Expands Internet Access • AI Is Reshaping News Industry
-              Worldwide
-            </div>
-          </div>
-        </div> */}
-      <div className="p-4" >
+    <header className="relative z-10 w-full shrink-0 border-b border-border bg-secondary text-foreground">
+      <div className="p-4">
         <LiveUpdatesTicker />
       </div>
-      {/* Main Navbar */}
       <nav className="max-w-7xl mx-auto px-4 lg:px-6">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer">
-            <div className="w-12 h-12 rounded-2xl bg-red-600 flex items-center justify-center font-black text-xl shadow-lg shadow-red-600/30">
+            <div className="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center font-black text-xl text-primary-foreground shadow-lg shadow-primary/30">
               K
             </div>
 
@@ -98,19 +82,18 @@ export default function KarnaliUpdatesNavbar() {
               <h1 className="text-2xl font-black tracking-tight">
                 Karnali Updates
               </h1>
-              <p className="text-xs tracking-wider text-zinc-500 uppercase dark:text-zinc-400">
+              <p className="text-xs tracking-wider text-muted-foreground uppercase">
                 Truth • Fast • Reliable
               </p>
             </div>
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-7 font-medium">
             {mainNavLinks.map(({ label, href }) => (
               <a
                 key={label}
                 href={href}
-                className="hover:text-red-500 transition-colors duration-300"
+                className="hover:text-primary transition-colors duration-300"
               >
                 {label}
               </a>
@@ -123,12 +106,11 @@ export default function KarnaliUpdatesNavbar() {
                 aria-haspopup="true"
                 aria-controls="nav-more-menu"
                 onClick={() => setMoreOpen((o) => !o)}
-                className="flex items-center gap-1 hover:text-red-500 transition-colors duration-300"
+                className="flex items-center gap-1 hover:text-primary transition-colors duration-300"
               >
                 More
                 <ChevronDown
-                  className={`size-4 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""
-                    }`}
+                  className={`size-4 transition-transform duration-200 ${moreOpen ? "rotate-180" : ""}`}
                   aria-hidden
                 />
               </button>
@@ -138,14 +120,14 @@ export default function KarnaliUpdatesNavbar() {
                   id="nav-more-menu"
                   role="menu"
                   aria-orientation="vertical"
-                  className="absolute right-0 top-full z-50 mt-2 min-w-[13rem] rounded-xl border border-zinc-200 bg-white py-2 shadow-lg dark:border-zinc-800 dark:bg-zinc-950"
+                  className="absolute right-0 top-full z-50 mt-2 min-w-[13rem] rounded-xl border border-border bg-card py-2 shadow-lg"
                 >
                   {moreCategories.map((item) => (
                     <a
                       key={item}
                       href="#"
                       role="menuitem"
-                      className="block px-4 py-2 text-sm text-zinc-800 hover:bg-zinc-100 hover:text-red-600 dark:text-zinc-200 dark:hover:bg-zinc-900"
+                      className="block px-4 py-2 text-sm text-card-foreground hover:bg-muted hover:text-primary"
                       onClick={() => setMoreOpen(false)}
                     >
                       {item}
@@ -156,19 +138,14 @@ export default function KarnaliUpdatesNavbar() {
             </div>
           </div>
 
-          {/* Right Actions */}
           <div className="flex items-center gap-3">
-
-            {/* Live News */}
-            <button className="bg-red-600 text-white hover:bg-red-700 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-red-600/30">
+            <button className="bg-primary text-primary-foreground hover:bg-primary/90 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-primary/30">
               Live News
             </button>
 
-            {/* Theme Toggle */}
             <ThemeToggle />
 
-            {/* Search */}
-            <button className="hidden items-center gap-2 rounded-xl border border-zinc-200 bg-zinc-100 px-4 py-2 transition-all duration-300 hover:bg-zinc-200 md:flex dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800">
+            <button className="hidden items-center gap-2 rounded-xl border border-border bg-muted px-4 py-2 transition-all duration-300 hover:bg-muted/80 md:flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -183,16 +160,12 @@ export default function KarnaliUpdatesNavbar() {
                   d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 5.5 5.5a7.5 7.5 0 0 0 11.15 11.15Z"
                 />
               </svg>
-
-              <span className="text-sm text-zinc-600 dark:text-zinc-300">
-                Search
-              </span>
+              <span className="text-sm text-muted-foreground">Search</span>
             </button>
 
             <NavbarAuth key={pathname} />
 
-            {/* Mobile Menu */}
-            <button className="rounded-lg border border-zinc-200 p-2 hover:bg-zinc-100 lg:hidden dark:border-zinc-800 dark:hover:bg-zinc-900">
+            <button className="rounded-lg border border-border p-2 hover:bg-muted lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -212,8 +185,7 @@ export default function KarnaliUpdatesNavbar() {
         </div>
       </nav>
 
-      {/* Bottom Category Scroll */}
-      <div className="border-t border-zinc-200 bg-zinc-100 dark:border-zinc-900 dark:bg-zinc-950">
+      <div className="border-t border-border bg-background">
         <div className="max-w-7xl mx-auto px-4 py-3 overflow-x-auto scrollbar-hide">
           <div className="flex items-center gap-3 min-w-max">
             {[
@@ -230,7 +202,7 @@ export default function KarnaliUpdatesNavbar() {
             ].map((tag) => (
               <button
                 key={tag}
-                className="rounded-full border border-zinc-300 bg-zinc-200 px-4 py-2 text-sm transition-all duration-300 hover:border-red-600 hover:bg-red-600 hover:text-white dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-red-600"
+                className="rounded-full border border-border bg-muted px-4 py-2 text-sm transition-all duration-300 hover:border-primary hover:bg-primary hover:text-primary-foreground"
               >
                 #{tag}
               </button>
@@ -240,23 +212,21 @@ export default function KarnaliUpdatesNavbar() {
       </div>
 
       <style jsx>{`
-          .animate-marquee {
-            animation: marquee 18s linear infinite;
+        .animate-marquee {
+          animation: marquee 18s linear infinite;
+        }
+        @keyframes marquee {
+          0% {
+            transform: translateX(100%);
           }
-  
-          @keyframes marquee {
-            0% {
-              transform: translateX(100%);
-            }
-            100% {
-              transform: translateX(-100%);
-            }
+          100% {
+            transform: translateX(-100%);
           }
-  
-          .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </header>
   );
 }

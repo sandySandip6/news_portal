@@ -47,7 +47,7 @@ function FooterLink({
   return (
     <Link
       href={href}
-      className="text-sm text-zinc-400 transition hover:text-red-400"
+      className="text-sm text-muted-foreground transition hover:text-primary"
     >
       {children}
     </Link>
@@ -58,25 +58,25 @@ export default function KarnaliUpdatesFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto shrink-0 border-t border-zinc-800 bg-zinc-950 text-zinc-300">
+    <footer className="mt-auto shrink-0 border-t border-border bg-secondary text-foreground/90">
       <div className="mx-auto max-w-7xl px-4 py-12 lg:px-6 lg:py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4">
             <Link href="/" className="inline-flex items-center gap-3">
-              <span className="flex size-12 items-center justify-center rounded-2xl bg-red-600 text-xl font-black text-white shadow-lg shadow-red-600/25">
+              <span className="flex size-12 items-center justify-center rounded-2xl bg-primary text-xl font-black text-primary-foreground shadow-lg shadow-primary/25">
                 K
               </span>
               <span>
-                <span className="block font-heading text-xl font-black tracking-tight text-white">
+                <span className="block font-heading text-xl font-black tracking-tight text-foreground">
                   Karnali Updates
                 </span>
-                <span className="text-xs font-medium tracking-widest text-zinc-500 uppercase">
+                <span className="text-xs font-medium tracking-widest text-muted-foreground uppercase">
                   Truth · Fast · Reliable
                 </span>
               </span>
             </Link>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-zinc-400">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
               Independent reporting from Karnali Province and across Nepal—verified
               sources, clear context, and updates you can trust.
             </p>
@@ -87,7 +87,7 @@ export default function KarnaliUpdatesFooter() {
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="flex size-10 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-400 transition hover:border-red-600/50 hover:bg-red-600/10 hover:text-red-400"
+                  className="flex size-10 items-center justify-center rounded-xl border border-border bg-muted text-muted-foreground transition hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
                   aria-label={label}
                 >
                   <Icon className="size-5" aria-hidden />
@@ -98,7 +98,7 @@ export default function KarnaliUpdatesFooter() {
 
           {/* Sections */}
           <div className="lg:col-span-3">
-            <h2 className="font-heading text-xs font-bold tracking-widest text-zinc-500 uppercase">
+            <h2 className="font-heading text-xs font-bold tracking-widest text-muted-foreground uppercase">
               Sections
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -112,7 +112,7 @@ export default function KarnaliUpdatesFooter() {
 
           {/* Company */}
           <div className="lg:col-span-2">
-            <h2 className="font-heading text-xs font-bold tracking-widest text-zinc-500 uppercase">
+            <h2 className="font-heading text-xs font-bold tracking-widest text-muted-foreground uppercase">
               Company
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -126,7 +126,7 @@ export default function KarnaliUpdatesFooter() {
 
           {/* Legal + newsletter CTA */}
           <div className="sm:col-span-2 lg:col-span-3">
-            <h2 className="font-heading text-xs font-bold tracking-widest text-zinc-500 uppercase">
+            <h2 className="font-heading text-xs font-bold tracking-widest text-muted-foreground uppercase">
               Legal &amp; standards
             </h2>
             <ul className="mt-4 space-y-2.5">
@@ -136,14 +136,14 @@ export default function KarnaliUpdatesFooter() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 rounded-2xl border border-zinc-800 bg-zinc-900/80 p-5">
-              <p className="font-heading text-sm font-bold text-white">Morning briefing</p>
-              <p className="mt-1 text-xs text-zinc-500">
+            <div className="mt-8 rounded-2xl border border-border bg-muted/80 p-5">
+              <p className="font-heading text-sm font-bold text-foreground">Morning briefing</p>
+              <p className="mt-1 text-xs text-muted-foreground">
                 Top stories in your inbox. Free, unsubscribe anytime.
               </p>
               <Link
                 href="/newsletter"
-                className="mt-4 inline-flex items-center justify-center rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-red-700"
+                className="mt-4 inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
               >
                 Subscribe
               </Link>
@@ -152,8 +152,8 @@ export default function KarnaliUpdatesFooter() {
         </div>
       </div>
 
-      <div className="border-t border-zinc-800/80 bg-black/40">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 text-xs text-zinc-500 sm:flex-row lg:px-6">
+      <div className="border-t border-border/80 bg-background/60">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 text-xs text-muted-foreground sm:flex-row lg:px-6">
           <p>
             © {year} Karnali Updates. All rights reserved.
           </p>

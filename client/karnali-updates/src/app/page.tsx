@@ -72,7 +72,7 @@ export default function Home() {
               className="object-cover transition duration-500 group-hover:scale-110"
             />
             <div className="absolute inset-0 flex flex-col justify-end bg-black/55 p-6 text-white sm:p-8">
-              <span className="w-fit rounded-full bg-red-600 px-3 py-1 text-sm">
+              <span className="w-fit rounded-full bg-primary px-3 py-1 text-sm text-primary-foreground">
                 {FEATURED.badge}
               </span>
               <h1
@@ -81,7 +81,7 @@ export default function Home() {
               >
                 {FEATURED.title}
               </h1>
-              <p className="mt-3 text-zinc-200">{FEATURED.excerpt}</p>
+              <p className="mt-3 text-foreground/80">{FEATURED.excerpt}</p>
             </div>
           </article>
 
@@ -91,7 +91,7 @@ export default function Home() {
                 key={story.title}
                 className="rounded-2xl border border-border bg-card p-5 text-card-foreground transition hover:bg-muted"
               >
-                <span className="text-sm font-semibold text-red-600">{story.category}</span>
+                <span className="text-sm font-semibold text-primary">{story.category}</span>
                 <h2 className="mt-2 font-heading text-xl font-semibold">{story.title}</h2>
               </article>
             ))}

@@ -19,7 +19,7 @@ export function TrendingNews({ items }: TrendingNewsProps) {
           <Link
             key={article.id}
             href={`/article/${article.id}`}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-card transition hover:border-red-600/40 hover:shadow-md"
+            className="group relative overflow-hidden rounded-2xl border border-border bg-card transition hover:border-primary/40 hover:shadow-md"
           >
             <div className="relative aspect-[4/3]">
               <Image
@@ -29,15 +29,15 @@ export function TrendingNews({ items }: TrendingNewsProps) {
                 className="object-cover transition duration-500 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 25vw"
               />
-              <span className="absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-red-600 text-sm font-black text-white shadow-lg">
+              <span className="absolute top-3 left-3 flex size-8 items-center justify-center rounded-full bg-primary text-sm font-black text-primary-foreground shadow-lg">
                 {i + 1}
               </span>
             </div>
             <div className="p-4">
-              <p className="text-xs font-semibold tracking-wide text-red-600 uppercase">
+              <p className="text-xs font-semibold tracking-wide text-primary uppercase">
                 {article.category}
               </p>
-              <h3 className="mt-2 line-clamp-2 font-heading text-base font-bold leading-snug group-hover:text-red-600">
+              <h3 className="mt-2 line-clamp-2 font-heading text-base font-bold leading-snug group-hover:text-primary">
                 {article.title}
               </h3>
               <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{article.excerpt}</p>

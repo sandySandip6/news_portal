@@ -36,9 +36,9 @@ export function NewsCard({
       </div>
 
       <div className="mt-4">
-        <span className="text-sm font-semibold text-red-600">{category}</span>
+        <span className="text-sm font-semibold text-primary">{category}</span>
 
-        <h2 className="mt-2 font-heading text-xl font-bold transition group-hover:text-red-600 sm:text-2xl">
+        <h2 className="mt-2 font-heading text-xl font-bold transition group-hover:text-primary sm:text-2xl">
           {title}
         </h2>
 

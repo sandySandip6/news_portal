@@ -32,7 +32,7 @@ export function SectionHeader({
           <p
             className={cn(
               "text-xs font-semibold tracking-widest uppercase",
-              inverted ? "text-red-300" : "text-red-600",
+              inverted ? "text-accent" : "text-primary",
             )}
           >
             {eyebrow}
@@ -53,8 +53,8 @@ export function SectionHeader({
           className={cn(
             "text-sm font-semibold transition",
             inverted
-              ? "text-red-200 hover:text-white"
-              : "text-red-600 hover:text-red-700",
+              ? "text-accent hover:text-foreground"
+              : "text-primary hover:text-primary/80",
           )}
         >
           {linkLabel} →

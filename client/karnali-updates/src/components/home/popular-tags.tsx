@@ -17,7 +17,7 @@ export function PopularTags({ tags }: PopularTagsProps) {
           <Link
             key={tag}
             href={`/tag/${encodeURIComponent(tag.toLowerCase().replace(/\s+/g, "-"))}`}
-            className="rounded-full border border-border bg-muted/60 px-3 py-1.5 text-sm font-medium text-foreground transition hover:border-red-600/40 hover:bg-red-600/10 hover:text-red-700 dark:hover:text-red-400"
+            className="rounded-full border border-border bg-muted/60 px-3 py-1.5 text-sm font-medium text-foreground transition hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
           >
             #{tag}
           </Link>

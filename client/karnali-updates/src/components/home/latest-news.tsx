@@ -32,7 +32,7 @@ export function LatestNews({ items }: LatestNewsProps) {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-muted-foreground">
-                  <span className="font-semibold text-red-600">{article.category}</span>
+                  <span className="font-semibold text-primary">{article.category}</span>
                   <span aria-hidden>·</span>
                   <time>{article.time}</time>
                 </div>

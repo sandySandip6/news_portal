@@ -18,20 +18,20 @@ export function OpinionSection({ items }: OpinionSectionProps) {
           <Link
             key={piece.id}
             href={`/opinion/${piece.id}`}
-            className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-muted/40 p-6 transition hover:border-red-600/35 hover:shadow-md"
+            className="group relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-muted/40 p-6 transition hover:border-primary/35 hover:shadow-md"
           >
             <span
-              className="font-heading text-5xl font-black leading-none text-red-600/20 transition group-hover:text-red-600/30"
+              className="font-heading text-5xl font-black leading-none text-primary/20 transition group-hover:text-primary/30"
               aria-hidden
             >
               “
             </span>
-            <h3 className="mt-2 font-heading text-xl font-bold leading-snug group-hover:text-red-600">
+            <h3 className="mt-2 font-heading text-xl font-bold leading-snug group-hover:text-primary">
               {piece.title}
             </h3>
             <p className="mt-3 line-clamp-3 text-sm text-muted-foreground">{piece.excerpt}</p>
             <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-red-600 text-sm font-bold text-white">
+              <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
                 {piece.author
                   .split(" ")
                   .map((w) => w[0])

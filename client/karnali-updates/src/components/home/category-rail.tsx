@@ -19,7 +19,7 @@ export function CategoryRail({ title, eyebrow, href, items }: CategoryRailProps)
           <Link
             key={article.id}
             href={`/article/${article.id}`}
-            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-red-600/30 hover:shadow-md"
+            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card transition hover:border-primary/30 hover:shadow-md"
           >
             <div className="relative aspect-[16/10]">
               <Image
@@ -31,8 +31,8 @@ export function CategoryRail({ title, eyebrow, href, items }: CategoryRailProps)
               />
             </div>
             <div className="flex flex-1 flex-col p-4">
-              <p className="text-xs font-semibold text-red-600">{article.category}</p>
-              <h3 className="mt-2 line-clamp-2 flex-1 font-heading text-base font-bold leading-snug group-hover:text-red-600">
+              <p className="text-xs font-semibold text-primary">{article.category}</p>
+              <h3 className="mt-2 line-clamp-2 flex-1 font-heading text-base font-bold leading-snug group-hover:text-primary">
                 {article.title}
               </h3>
               {article.excerpt ? (

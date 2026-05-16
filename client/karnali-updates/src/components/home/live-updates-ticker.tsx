@@ -5,7 +5,7 @@ export function LiveUpdatesTicker() {
 
   return (
     <div
-      className="border-b border-red-700/30 bg-red-600 text-white"
+      className="border-b border-primary/30 bg-primary text-primary-foreground"
       role="region"
       aria-label="Live updates"
     >

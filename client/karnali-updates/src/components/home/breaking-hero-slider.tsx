@@ -53,17 +53,17 @@ export function BreakingHeroSlider({ slides }: BreakingHeroSliderProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end p-6 text-white sm:p-10 lg:p-12">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="rounded-full bg-red-600 px-3 py-1 text-xs font-bold tracking-wide uppercase">
+            <span className="rounded-full bg-primary px-3 py-1 text-xs font-bold tracking-wide text-primary-foreground uppercase">
               Breaking
             </span>
             <span className="text-xs font-medium text-white/80">{slide.time}</span>
-            <span className="text-xs font-medium text-red-300">{slide.category}</span>
+            <span className="text-xs font-medium text-accent">{slide.category}</span>
           </div>
           <h2 className="mt-3 max-w-4xl font-heading text-2xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">
             {slide.title}
           </h2>
           {slide.excerpt ? (
-            <p className="mt-3 max-w-2xl text-sm text-zinc-200 sm:text-base">{slide.excerpt}</p>
+            <p className="mt-3 max-w-2xl text-sm text-foreground/80 sm:text-base">{slide.excerpt}</p>
           ) : null}
         </div>
       </div>
@@ -103,7 +103,7 @@ export function BreakingHeroSlider({ slides }: BreakingHeroSliderProps) {
                 onClick={() => setIndex(i)}
                 className={cn(
                   "h-2 rounded-full transition-all",
-                  i === index ? "w-8 bg-red-500" : "w-2 bg-white/40 hover:bg-white/70",
+                  i === index ? "w-8 bg-primary" : "w-2 bg-foreground/40 hover:bg-foreground/70",
                 )}
               />
             ))}
