@@ -11,7 +11,7 @@ export function getAccessToken(): string | undefined {
 }
 
 export function getRefreshToken(): string | undefined {
-  return Cookies.get(AUTH_COOKIE_NAMES.refresh);
+  return Cookies.get(AUTH_COOKIE_NAMES.refresh); 
 }
 
 export function getStoredUsername(): string | undefined {
@@ -39,7 +39,7 @@ export function setAuthSession(params: {
     expires: 7,
   });
   Cookies.set(AUTH_COOKIE_NAMES.username, username.trim(), {
-    sameSite: "lax",
+    sameSite: "lax", 
     path: "/",
     expires: 7,
   });
